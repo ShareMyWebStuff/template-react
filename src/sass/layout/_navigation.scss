@@ -1,0 +1,197 @@
+
+// <nav id="nav">
+
+//     <div id="nav-toggler">
+//         <i class="fa fa-bars"></i>
+//     </div>
+
+//     <ul id="nav-main" class="nav nav-toggler-display">
+//         <li><a href="#">Home</a></li>
+//         <li class="nav__dropdown" >
+//             <a href="#">Drop 1 <i class="fa fa-sort-desc"></i></a>
+//             <ul>
+//                 <li><a href="#">Product 1</a></li>
+//                 <li><a href="#">Product 2</a></li>
+//                 <li><a href="#">Product 3</a></li>
+//                 <li><a href="#">Product 4</a></li>
+//             </ul>
+//         </li>
+//         <li class="nav__dropdown">
+//             <a href="#">Drop 2 <i class="fa fa-sort-desc"></i></a>
+//             <ul  class="">
+//                 <li><a href="#">Product 1</a></li>
+//                 <li><a href="#">Product 2</a></li>
+//                 <li><a href="#">Product 3</a></li>
+//                 <li><a href="#">Product 4</a></li>
+//             </ul>
+//         </li>
+//         <li><a href="#">About</a></li>
+//         <li><a href="#">FAQ</a></li>
+//     </ul>
+// </nav>
+
+#nav {
+    display: grid;
+    grid-template-rows: min-content min-content;
+    grid-template-columns: 1fr max-content;
+
+    font-size: $default-font-size;
+    margin-right: 3rem;
+    @media only screen and (max-width: 600px){
+        grid-template-rows: min-content min-content min-content;
+        grid-template-columns: 1fr min-content;
+    }
+
+    // 
+    .nav-brand {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 1;
+        align-self: center;
+        @media only screen and (max-width: 600px){
+            grid-column: 2 / span 1;
+        }
+
+        > img {
+            height: 4.5rem;
+        }
+    }
+
+    .nav-mission {
+        grid-row: 2 / span 1;
+        grid-column: 1 / span 1;
+        align-self: center;
+        margin-left: 2rem;
+        color: $color-logo-orange;
+        @media only screen and (max-width: 600px){
+            grid-column: 2 / span 1;
+        }
+    }
+
+    &-toggler {
+        padding: .5rem;
+        cursor: pointer;
+        display: none;
+       
+        @media only screen and (max-width: 600px){
+            display:block;
+            grid-row: 1 / span 1;
+            grid-column: 1 / span 1;
+            align-self: center;
+        }
+    }
+    .nav-toggler-icon {
+        font-size: $default-font-size;
+        fill: $color-logo-yellow;
+
+        width: 3.4rem;
+        height: 3.4rem;
+    }
+
+    &-main {
+        grid-row: 1 / span 1;
+        grid-column: 2 / span 1;
+        align-self: center;
+        list-style-type:none;
+
+        @media only screen and (max-width: 600px){
+            grid-row: 3 / span 1;
+            grid-column: 1 / span 2;
+            display:none;
+            position: static;
+            }
+
+        // Set all li's to be the height of the elements inside them
+        li {
+            height: 100%;
+        }
+
+        .dropdown-caret {
+            width: $default-font-size;
+            height: $default-font-size;
+            fill: $color-logo-yellow;
+        }
+
+        // Drop down menus
+        .nav__dropdown {
+            position: relative;
+        }
+
+        // Format the Dropdown ul box
+        .nav__dropdown-container {
+            display:block;
+            position: absolute;
+            min-width: 12rem;
+            right: 0;
+            background-color: rgba($color-blue-green-dark, .5);
+            border-radius: 5px;
+            border: 1px solid $color-logo-yellow;
+            list-style-type: none;
+
+            // Add a little space at the top and bottom of the ul box
+            li:first-child {
+                padding-top: .6rem;
+            }
+            li:last-child {
+                padding-bottom: .6rem;
+            }
+
+            @media only screen and (max-width: 750px){
+                min-width: 10rem;
+            }
+
+            @media only screen and (max-width: 600px){
+                position: static;
+                border: none;
+                padding-left: 2rem;
+                li {
+                    padding: 0;
+                }
+            }
+        }
+
+        // Set all the 
+        > li {
+            display: inline-block;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            padding-left: 2rem;
+            padding-right: 2rem;
+
+            @media only screen and (max-width: 750px){
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            @media only screen and (max-width: 600px){
+                display: block;
+                text-align: left;
+                margin-left: 5rem;
+            }
+        }
+
+        .menu-item:hover {
+            color: $color-logo-orange;
+        }
+
+        .menu-item-active {
+            color: $color-logo-orange;
+        }
+
+        .nav__dropdown:hover span,
+        .nav__dropdown-active span{
+            color: $color-logo-orange;         
+        }
+        .nav__dropdown:hover .dropdown-caret,
+        .nav__dropdown-active .dropdown-caret {
+            fill: $color-logo-orange;
+        }
+
+    }
+
+    .nav-toggler-display {
+        display: block;
+    }
+
+}
+

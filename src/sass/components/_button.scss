@@ -1,0 +1,44 @@
+// .btn {
+//     background-color: $color-logo-blue;
+//     color: $color-white;
+//     border: none;
+//     border-radius: 3px;
+//     padding: .5rem;
+//     font-size: $default-font-size;
+//     padding:1rem;
+//     width: 10rem;
+//     width: 100%;
+//     margin-left:auto;
+// }
+
+.btn {
+    border: none;
+    border-radius: .7rem;
+    font-size: $default-font-size;
+    font-size: 2rem;
+    padding:1rem;
+    padding-bottom: 1.3rem;
+    height: 4.5rem;
+}
+
+.btn-blk {
+    width: 100%;
+}
+
+.btn-submit {
+    background-color: $color-logo-blue;
+    color: $color-white;
+}
+
+.filter-btn {
+    border: 1px solid $color-blue-green-dark;
+    border-radius: .5rem;
+    padding: .3rem;
+    fill: $color-logo-blue;
+    display: inline-block;
+}
+
+.filter-btn-active {
+    background-color: $color-logo-blue;
+    fill: $color-white;
+}

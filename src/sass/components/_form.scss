@@ -1,0 +1,234 @@
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: $default-font-size;
+        font-family: inherit;
+        // color: inherit;
+        color: $color-blue-green-dark;
+        padding: 1rem 0 1rem 2rem; // 2rem;
+        border-radius: .5rem;
+        background-color: rgba($color-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 100%;
+        transition: all .3s;
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
+        &--valid {
+            border-left: 3px solid greenyellow;
+        }
+
+        &--warning {
+            border-left: 3px solid yellow;
+        }
+
+        &--invalid {
+            border-left: 3px solid $color-logo-orange;;
+        }
+
+        &--error {
+            color: $color-logo-orange;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: block;
+            text-align: right;
+            margin-right: 2rem;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-blue-green-light;
+        }
+
+        &:focus:invalid {
+            // border-bottom: 3px solid $color-logo-orange;
+            border-bottom: 3px solid $color-logo-orange;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-logo-blue;
+        }
+    }
+
+    &__textarea {
+        width: 100%;
+        font-size: $default-font-size;
+        font-family: inherit;
+        color: $color-blue-green-dark;
+        padding: 1rem 0 1rem 2rem; // 2rem;
+        border-radius: .5rem;
+        background-color: rgba($color-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+
+        &::-webkit-input-placeholder {
+            color: $color-logo-blue;
+        }
+    }
+
+    &__select {
+        display: block;
+        font-size: $default-font-size;
+        font-family: inherit;
+        color: $color-blue-green-dark;
+        // line-height: 1.3;
+        padding: .6em 1.4em .5em .8em;
+        width: 100%;
+        max-width: 100%; 
+        box-sizing: border-box;
+        margin: 0;
+        // border: 1px solid #aaa;
+        border-bottom: 3px solid transparent;
+        box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+        border-radius: .5em;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+          linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+        background-repeat: no-repeat, repeat;
+        background-position: right .7em top 50%, 0 0;
+        background-size: .65em auto, 100%;
+    }
+    &__select::-ms-expand {
+        display: none;
+    }
+    &__select:hover {
+        border-color: #888;
+    }
+    &__select:focus {
+        border-color: #aaa;
+        box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+        box-shadow: 0 0 0 3px -moz-mac-focusring;
+        color: #222; 
+        outline: none;
+    }
+    &__select option {
+        font-weight:normal;
+    }
+
+
+    &-search__tutor {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: min-content 1fr;
+        grid-column-gap: 1rem;
+        margin-bottom: 2rem;
+
+        &-type {
+            grid-row: 1 / span 1;
+            grid-column: 1 / span 4;
+            margin-bottom: .5rem;
+        }
+
+        &-subject {
+            grid-row: 2 / span 1;
+            grid-column: 1 / span 1;
+            width: 30rem;
+        }
+        &-level {
+            grid-row: 2 / span 1;
+            grid-column: 2 / span 1;
+            width: 20rem;
+        }
+        &-location {
+            grid-row: 2 / span 1;
+            grid-column: 3 / span 1;
+            width: 30rem;
+            padding-left: 1rem;
+        }
+        &-btn {
+            grid-row: 2 / span 1;
+            grid-column: 4 / span 1;
+            margin-top: auto;
+            margin-bottom:0;
+        }
+
+    }
+
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-bottom: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
+
+
+
+
+.boxedRadioBtn {
+  position: relative;
+  display: block;  
+
+	label {
+		display: block;
+    background-color: $color-white;
+		color: $color-blue-green-dark;
+		border-radius: .5rem;
+    padding: .5rem 1rem;
+    font-size: $default-font-size;
+    border: 2px solid $color-logo-blue;
+		margin-bottom: .5rem;
+		cursor: pointer;
+		&:after,
+		&:before {
+			content: "";
+			position: absolute;
+			right: 1.1rem;
+			top: 1.1rem;
+			width: 2rem;
+			height: 2rem;
+			border-radius: 3px;
+      background-color: $color-logo-blue;
+		}
+		&:before {
+			background: transparent;
+			z-index: 2;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-size: 1.3rem;
+			background-position: center;
+			width: 0;
+			height: 0;
+    //   background-image: url(../../img/radio-tick.svg);
+		}
+	}
+  
+  input[type="radio"] {
+		display: none;
+		position: absolute;
+		width: 100%;
+		appearance: none;
+		&:checked + label {
+			background: lighten($color-logo-blue, 30%);
+			border-color: $color-logo-blue;
+			&:after {
+				background: $color-logo-blue;
+			}
+			&:before {
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+	}
+}
+
+

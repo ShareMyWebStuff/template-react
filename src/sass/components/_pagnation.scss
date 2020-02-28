@@ -1,0 +1,30 @@
+.pagination-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: 1px solid $color-blue-green-dark;
+    padding-top: 1rem;
+}
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+    a {
+        color: $color-blue-green-dark;
+        float: left;
+        padding: .8rem 1.6rem;
+        text-decoration: none;
+    }
+  
+    a.active {
+        background-color: $color-blue-green-dark;
+        color: $color-logo-yellow;
+        border-radius: .5rem;
+    }
+  
+    a:hover:not(.active) {
+        background-color: #ddd;
+        border-radius: .5rem;
+    }
+}

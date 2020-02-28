@@ -1,0 +1,53 @@
+.education-form {
+    background-color: rgba($color-blue-green-dark,0.6);
+    // background-color: rgba($color-white,0.4);
+    // color: $color-blue-green-dark;
+    color: $color-logo-yellow;
+    border-radius: 1rem;
+    width: 70%;
+    margin: 2rem auto 0 auto;
+    z-index: 100;
+    padding: 2rem; 
+
+    .instutute {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .instutute-qualifications {
+        display: grid;
+        grid-template-columns: 1fr 1fr .5fr;
+        padding-left: 2rem;
+
+    }
+
+    .education-nav-btns{
+        width: 100%;
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .education-prev-btn {
+            width: 20%;
+            display: inline-block;
+        }
+        .education-add-btn {
+            width: 35%;
+            display: inline-block;
+            @media only screen and (max-width: 600px){
+                width: 40%;
+            }
+        }
+
+        .education-next-btn {
+            width: 20%;
+            display: inline-block;
+        }
+
+    }
+}
+
+

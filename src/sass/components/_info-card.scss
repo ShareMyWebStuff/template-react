@@ -1,0 +1,168 @@
+// In order for the info-card to work the following html will need to be added
+//
+// <div class="info-card info-card-left my-4">
+//     <div class="info-card__picture-area">
+//             <div class="info-card__picture" ></div>
+//             <div class="info-card__back-img">
+//                 <h1>Text here.</h1>
+//             </div>
+//     </div>
+//     <div class="info-card__desc">
+//             <h2 class="info-card__header">Opening a door to the future</h2>
+//             <p class="info-card__paragraph"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+//     </div>
+// </div>
+
+.info-card {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 2rem;
+    margin-top:    7rem;
+    margin-bottom: 7rem;
+    border-radius: .5rem;
+    border: 1px solid $color-black;
+    box-shadow: 0 .3rem .7rem -1px rgba(#000, .1);
+    overflow: hidden;
+    @media only screen and (max-width: 900px){
+        width: 80%;
+        flex-direction: column;
+    }
+    @media only screen and (max-width: 600px){
+        width: 100%;
+        flex-direction: column;
+    }
+
+    // If the info-card is hovered over then the picture zooms in
+    &:hover {
+        .info-card__picture {
+          transform: scale(1.3) rotate(3deg);
+        }
+    }
+
+    // Position card to the left on the screen
+    &-center-left {
+        margin-left : auto;
+        margin-right: auto;
+    }
+
+    &-center-right {
+        // margin-left : 12.5%;
+        margin-left : auto;
+        margin-right: auto;
+        flex-direction: row-reverse;
+        @media only screen and (max-width: 900px){
+            flex-direction: column;
+        }
+    }
+
+
+    // Position card to the left on the screen
+    &-left {
+        margin-left : 0;
+        margin-right: auto;
+        @media only screen and (max-width: 900px){
+            margin-left : auto;
+        }
+    }
+
+    // Position card to the right on the screen
+    &-right {
+        margin-left : auto;
+        margin-right: 0;
+        flex-direction: row-reverse;
+        @media only screen and (max-width: 900px){
+            margin-right: auto;
+            flex-direction: column;
+        }
+    }
+
+    // Sets the picture area
+    &__picture-area {
+        flex-basis: 40%;
+        position: relative;
+        z-index: 0;
+        min-height: 25rem;
+        // height: 25rem; 
+        @media only screen and (max-width: 900px){
+            flex-basis: 60%;
+        }
+    }
+
+    // Specifies the picture
+    &__picture {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform .2s;
+        background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg);
+    }
+
+    // Sets the back of the image when its hovered over
+    // -100% left makes this disappear of the screen to the left.
+    &__back-img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -100%;
+        margin: auto;
+        transition: left .2s;
+        background: rgba($color-black, .6);
+        color: $color_white;
+        font-size: $default-font-size;
+        h2 {
+            font-size: 2rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        padding: 2rem;
+        width: 100%;
+    }
+
+    // Sets the description    
+    &__desc {
+        flex-basis: 60%;
+        padding: 3rem;
+
+        // Dark colours
+        background-color: $color-blue-green-dark;
+        color: $color-white;
+
+        // White colours
+        background: $color_white;
+        color: $color-blue-green-dark;
+
+        // Light colours
+        background-color: $color-blue-green-light;
+        color: $color-white;
+
+        position: relative;
+        z-index: 1;
+        h2 {
+            font-size: 2rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        p {
+            font-size: $default-font-size;
+        }
+        @media only screen and (max-width: 900px){
+            flex-basis: 40%;
+        }
+    }
+
+    // If the info-card is hovered over then the left item is 0 on the back of the image.
+    // This makes the background dark and displays the message at the back.
+    &:hover {
+        .info-card__back-img {
+              left: 0%;
+        }
+    }
+
+}
+

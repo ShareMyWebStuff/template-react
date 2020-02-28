@@ -1,0 +1,155 @@
+
+.header {
+    position: relative;
+    padding: 1.5rem 0 5rem 0;
+    font-size: $default-font-size;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-blue-green-dark, 1),
+        rgba($color-blue-green-light, 0.8));
+
+    @media only screen and (max-width: 750px){
+        height: 100%;
+    }
+    // @media only screen and (max-width: 600px){
+    //     padding: 1.5rem .5rem 3rem .5rem;
+    // }
+
+    // Set the background image for the landing page
+    &-landing {
+        // Set the background to link to an image
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-blue-green-dark, 1),
+            rgba($color-blue-green-light, 0.5)),
+            url(#{$image-directory}/landing_1.jpg);
+        background-size: cover; 
+        background-position: 85% 15%;
+    }
+    &-tutor-search {
+        // Set the background to link to an image
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-blue-green-dark, 1),
+            rgba($color-blue-green-light, 0.5));
+            // url#{$image-directory}/landing_1.jpg);
+            // url(#{$image-directory}/tutor-search.jpg);
+        background-size: cover; 
+        background-position: 85% 15%;
+    }
+    &-tutor-reg-1 {
+        // Set the background to link to an image
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-blue-green-dark, 1),
+            rgba($color-blue-green-light, 0.5)),
+            url(#{$image-directory}/test_6.jpg);
+            // url(../../img/tutor-register.jpg);
+        background-size: cover; 
+        background-position: 85% 15%;
+    }
+    &-tutor-reg-2 {
+        // Set the background to link to an image
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-blue-green-dark, 1),
+            rgba($color-blue-green-light, 0.5)),
+            url(#{$image-directory}/test_6.jpg);
+            // url(../../img/tutor-register.jpg);
+        background-size: cover; 
+        background-position: 85% 15%;
+        min-height: 85vh;
+    }
+
+}
+
+// Header Search Box
+.hsb {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.7rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;   
+    @media only screen and (max-width: 750px){
+        flex-direction: column;
+        margin-top: 4rem;
+    }
+
+    &__form {
+        background-color: rgba($color-blue-green-dark,0.6);
+        padding: 2rem;
+        border-radius: 1rem;
+        min-width: 34rem;
+    }
+
+    &__statements{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: $color-off-white-text;
+    }
+
+    &__statements-title {
+        font-size: 2rem;
+    }
+
+}
+
+.form-search {
+    @media only screen and (max-width: 750px){
+        margin: 8rem;
+    }
+    @media only screen and (max-width: 480px){
+        margin: 4rem;
+    }
+    @media only screen and (max-width: 400px){
+        margin: 4rem 1rem;
+    }
+}
+
+.form-search__tutor-type {
+    display: flex; 
+    flex-flow: row nowrap;
+    justify-content: flex-start; 
+    align-items: stretch;
+
+    input {
+        @include hideInput;
+    }
+
+    label {
+        font-size: $default-font-size;
+    }
+
+    input + label {
+        margin: 0; 
+        padding: .75rem 2rem; 
+        width: 15rem;
+        position: relative; 
+        display: inline-block;
+        border: solid 1px #DDD; 
+        background-color: #FFF;
+        color: $color-blue-green-dark;
+        font-size: $default-font-size; 
+        line-height: 140%; 
+        font-weight: 600; 
+        text-align: center;
+        box-shadow: 0 0 0 rgba(255,255,255,0);
+        transition: border-color .15s ease-out, 
+                    color .25s ease-out, 
+                    background-color .15s ease-out,
+                    box-shadow .15s ease-out;
+        
+        &:first-of-type {border-radius: .6rem 0 0 .6rem; border-right: none;}
+        &:last-of-type {border-radius: 0 .6rem .6rem 0; border-left: none;}
+    }
+    input:hover + label {border-color: $color-logo-blue;}
+    input:checked + label {
+        background-color: $color-logo-blue;
+        color: #FFF; 
+        box-shadow: $activeShadow;
+        border-color: $color-logo-blue;
+        z-index: 1;
+    }
+}

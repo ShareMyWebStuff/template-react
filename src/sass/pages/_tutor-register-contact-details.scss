@@ -1,0 +1,71 @@
+.contact-dets-form {
+    background-color: rgba($color-blue-green-dark,0.6);
+    position: absolute;
+    top: 10rem;
+    left: 3%;
+    border-radius: 1rem;
+    width: 90%;
+    margin: 5rem auto 0 auto;
+    z-index: 100;
+    padding: 2rem;
+
+    .title-style { width: 10rem; display: inline-block; }
+
+    .firstname-style,
+    .lastname-style { 
+        width : 35rem; 
+        display: inline-block; 
+        @media only screen and (max-width: 450px){
+            width : 32rem; 
+            display: block;
+        }
+    }
+    
+    
+    .address-1-style,
+    .address-2-style,
+    .address-3-style,
+    .county-style,
+    .town-style { 
+        width : 42rem; 
+        display: inline-block; 
+        @media only screen and (max-width: 450px){
+            width : 32rem; 
+            display: block;
+        }
+    }
+    // .town-style { width : 40rem; display: inline-block; }
+    .postcode-style { 
+        width : 12rem; 
+        display: inline-block; 
+        @media only screen and (max-width: 600px){
+            display: block; 
+        }
+    }
+    .phone-style,
+    .mobile-style { 
+        width : 20rem; 
+        display: inline-block; 
+        @media only screen and (max-width: 450px){
+            display: block; 
+        }
+    }
+    
+}
+
+.contact-det-main {
+
+    height: 18rem;
+    @media only screen and (max-width: 600px){
+        height: 25rem;
+    }
+    @media only screen and (max-width: 450px){
+        height: 42rem;
+    }
+}
+
+.contact-numbers {
+    display: block;
+}
+
+

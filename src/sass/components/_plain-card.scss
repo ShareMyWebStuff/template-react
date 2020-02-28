@@ -1,0 +1,50 @@
+// In order for the info-card to work the following html will need to be added
+//
+// <div class="plain-card ">
+//     <div class="info-card__picture-area">
+//             <div class="info-card__picture" ></div>
+//             <div class="info-card__back-img">
+//                 <h1>Text here.</h1>
+//             </div>
+//     </div>
+//     <div class="info-card__desc">
+//             <h2 class="info-card__header">Opening a door to the future</h2>
+//             <p class="info-card__paragraph"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+//     </div>
+// </div>
+
+.plain-card {
+
+    width: 100%;
+    // margin: 2rem;
+    border-radius: .5rem;
+    border: 1px solid $color-black;
+    box-shadow: 0 .3rem .7rem -1px rgba(#000, .1);
+    overflow: hidden;
+    background-color: $color-blue-green-light;
+    @media only screen and (max-width: 900px){
+        width: 80%;
+        margin-left : auto;
+        margin-right: auto;
+    }
+    @media only screen and (max-width: 600px){
+        width: 100%;
+    }
+
+    &__header {
+        font-size: 2rem;
+        padding: 1rem;
+        color:  $color-white;
+        text-align: center;
+    }
+
+    &__content {
+        font-size: $default-font-size;
+        padding: 3rem;
+        background-color: $color-off-white-text;
+        color: $color-blue-green-dark;
+
+    }
+
+}
+

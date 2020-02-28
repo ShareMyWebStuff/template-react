@@ -1,0 +1,29 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/button";
+@import "components/form";
+@import "components/info-card";
+@import "components/plain-card";
+@import "components/pagnation";
+@import "components/tooltip";
+@import "components/modal";
+@import "components/tutor-search-det";
+
+@import "pages/tutor-register-contact-details";
+@import "pages/tutor-register-profile";
+@import "pages/tutor-register-languages";
+@import "pages/tutor-register-subjects";
+@import "pages/tutor-register-location";
+@import "pages/tutor-register-education";
+
+@import "layout/header";
+@import "layout/navigation"; 
+@import "layout/main";
+@import "layout/footer";
+
+

@@ -1,0 +1,52 @@
+    // Tooltips
+    .tooltip {
+        display:inline-block;
+        position:relative;
+        // border-bottom:1px dotted #666;
+        text-align:left;
+    }
+    
+    .tooltip .bottom {
+        min-width:20rem; 
+        top:4rem;
+        left: 3rem;
+        transform:translate(-80%, 0);
+        padding:1rem 2rem;
+        color:#444444;
+        background-color:#EEEEEE;
+        font-weight:normal;
+        font-size:1.3rem;
+        border-radius:.8rem;
+        position:absolute;
+        z-index:99999999;
+        box-sizing:border-box;
+        border:1px solid $color-blue-green-dark;box-shadow:0 1px .8rem rgba(0,0,0,0.5);
+        visibility:hidden; opacity:0; transition:opacity 0.8s;
+    }
+    
+    .tooltip:hover .bottom {
+        visibility:visible; opacity:1;
+    }
+    
+
+    // The i turns into the little arrow at the top of the tool tip
+    .tooltip .bottom i {
+        position:absolute;
+        bottom:100%;
+        left:80%;
+        margin-left:-1.2rem;
+        width:2.4rem;
+        height:1.2rem;
+        overflow:hidden;
+    }
+    
+    .tooltip .bottom i::after {
+        content:'';
+        position:absolute;
+        width:1.2rem;
+        height:1.2rem;
+        left:50%;
+        transform:translate(-50%,50%) rotate(45deg);
+        background-color:#EEEEEE;
+        border:1px solid $color-blue-green-dark;box-shadow:0 1px .8rem rgba(0,0,0,0.5);
+    }

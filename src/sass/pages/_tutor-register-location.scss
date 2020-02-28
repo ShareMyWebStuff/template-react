@@ -1,0 +1,22 @@
+.location-form {
+    background-color: rgba($color-blue-green-dark,0.6);
+    border-radius: 1rem;
+    width: 70%;
+    margin: 2rem auto 0 auto;
+    z-index: 100;
+    padding: 2rem; 
+
+    .location-area {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-column-gap: 5rem;
+        @media only screen and (max-width: 650px){
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+        }        
+
+    }
+}
+
+

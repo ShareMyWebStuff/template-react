@@ -1,0 +1,164 @@
+.email-card {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    margin-top:    7rem;
+    margin-bottom: 7rem;
+    border-radius: 5rem;
+    border: 1px solid $color-black;
+    overflow: hidden;
+
+    &-center-right {
+        flex-direction: row-reverse;
+    }
+
+    // Sets the picture area
+    &__picture-area {
+        flex-basis: 25%;
+        position: relative;
+        z-index: 0;
+        min-height: 25rem;
+        margin: 1rem;
+        @media only screen and (max-width: 900px){
+            display: none;
+        }
+    }
+
+    &__desc {
+        flex-basis: 75%;
+        padding: 1rem 3rem;
+
+        // Dark colours
+        background-color: $color-blue-green-dark;
+        color: $color-white;
+
+        // White colours
+        background: $color_white;
+        color: $color-blue-green-dark;
+
+        // Light colours
+        background-color: $color-blue-green-light;
+        color: $color-white;
+
+        position: relative;
+        z-index: 1;
+        h2 {
+            font-size: 2rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        p {
+            font-size: $default-font-size;
+        }
+        @media only screen and (max-width: 900px){
+            flex-basis: 100%;
+        }
+    }
+
+    &-resend {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        &-input {
+            flex-basis: 70%;
+        }
+
+        &-btn {
+            flex-basis: 20%;
+        }
+    }
+
+    &_close {
+        cursor: pointer;
+        font-size: 2.5rem;
+        padding: 1rem;
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        z-index: 100;
+    }
+}
+
+.login-box {
+    display:flex;
+    flex-direction: row;
+    margin: 2rem;
+    margin-top:    7rem;
+    margin-bottom: 7rem;
+    border-radius: 5rem;
+    border: 1px solid $color-black;
+    overflow: hidden;
+    background-color: $color-blue-green-light;
+    color: $color-white;
+
+    h2 {
+        margin: 2rem 0;
+        font-size: 2rem;
+        text-align: center;
+    }
+    p {
+        font-size: $default-font-size;
+        @media only screen and (max-width: 800px){
+            font-size: $small-font-size;
+        }
+    }
+
+    &--form {
+        // background-color: $color-blue-green-light;
+        background-color: rgba($color-blue-green-dark,0.6);
+        flex-basis: 45%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        @media only screen and (max-width: 800px){
+            padding: 2rem 1rem;
+        }
+        @media only screen and (max-width: 450px){
+            flex-basis: 100%;
+        }
+    }
+
+    &--username {
+        width: 70%;
+        margin-left:auto;
+        margin-right:auto;
+        @media only screen and (max-width: 800px){
+            width: 100%;
+        }
+        @media only screen and (max-width: 450px){
+            width: 70%;
+        }
+
+    }
+
+    &--password {
+        width: 70%;
+        margin-left:auto;
+        margin-right:auto;
+        @media only screen and (max-width: 800px){
+            width: 100%;
+        }
+        @media only screen and (max-width: 450px){
+            width: 70%;
+        }
+    }
+    &--btn {
+        width: 40%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    &--info {
+        flex-basis: 55%;
+        background-size: cover;
+        background-position: center;
+        background-image: url(/images/login_1_info_640.jpg);
+        @media only screen and (max-width: 450px){
+            display: none;
+            flex-basis: 0%;
+        }
+    }
+}

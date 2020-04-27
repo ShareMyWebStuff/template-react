@@ -21,10 +21,11 @@
     display: grid;
     grid-template-rows: min-content min-content min-content ;
     grid-template-columns: max-content 1fr;
+    padding-top: 1rem;
     @media only screen and (max-width: 600px){
         grid-template-rows: min-content min-content min-content min-content ;
         grid-template-columns: 1fr max-content ;
-        margin-top: 2rem
+        margin-top: 2rem;
     }
 
     &__logo {

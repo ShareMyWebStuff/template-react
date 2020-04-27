@@ -10,20 +10,20 @@
 .pagination {
     display: inline-block;
     text-align: center;
-    a {
+    span {
         color: $color-blue-green-dark;
         float: left;
         padding: .8rem 1.6rem;
         text-decoration: none;
     }
   
-    a.active {
+    span.active {
         background-color: $color-blue-green-dark;
         color: $color-logo-yellow;
         border-radius: .5rem;
     }
   
-    a:hover:not(.active) {
+    span:hover:not(.active) {
         background-color: #ddd;
         border-radius: .5rem;
     }

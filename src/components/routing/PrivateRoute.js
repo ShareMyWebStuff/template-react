@@ -4,16 +4,16 @@ import PropTypes from 'prop-types'
 import { connect} from 'react-redux';
 import history from 'components/history';
 
-const PrivateRoute = ({component: Component, auth: {isAuthenticated, loading}, ...rest}) => (
+const PrivateRoute = ({component: Component, login: {isAuthenticated, loading}, ...rest}) => (
     <Route {...rest} render={props => !isAuthenticated && !loading ? (history.push('/')) : (<Component {...props} /> ) } />
 )
 
 PrivateRoute.propTypes = {
-    auth: PropTypes.object.isRequired
+    login: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    login: state.login
 })
 
 export default connect (mapStateToProps)(PrivateRoute);

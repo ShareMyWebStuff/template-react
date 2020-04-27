@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 // import alert from './alert';
-import auth from './auth/auth';
+import login from './login';
+import register from './register';
+import subjects from './subjects';
 
 export default combineReducers( {
     // alert,
-    auth
+    login,
+    register,
+    subjects
 });

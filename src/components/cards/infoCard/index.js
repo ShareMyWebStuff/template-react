@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 // InfoCard
 // 
-// Displays a card with an image bckground on the left or right. When the image is hovered over
-// the picture area text with be displayed
+// Displays a card with an image background on the left or right. When the image is hovered over
+// the picture area text with be displayed.
 // 
 // Props
 // side         undefined | left | right     Undefined defaults to left
@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 // desc         The description of the header
 // desc_header  The picture header
 // desc_items   The picture description
+// 
 const InfoCard = (props) => {
 
     const items = props.desc_items.map( (item, idx) => {

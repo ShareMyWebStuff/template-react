@@ -1,0 +1,191 @@
+.contact-details-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media only screen and (max-width: 1200px){
+        flex-direction: column-reverse;
+    }
+}
+
+.contact-dets-desc {
+    padding: 0 1rem;
+    flex-basis: 54%;
+    border-radius: 1rem;
+    margin: 1rem auto 0 auto;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-blue-green-dark, 0.7),
+        rgba($color-blue-green-dark, 0.7)),
+        url(#{$image-directory}/contact_details.jpg);
+    background-size: cover; 
+    background-position: 85% 15%;
+    color: $color-off-white-text;
+    @media only screen and (max-width: 1200px){
+    }
+}
+
+.contact-dets-form {
+    flex-basis: 44%;
+    background-color: rgba($color-blue-green-dark,0.6);
+    border-radius: 1rem;
+    margin: 1rem auto 0 auto;
+    z-index: 100;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 1rem;
+    @media only screen and (max-width: 1200px){
+        margin: 4rem 0;
+    }
+
+    .title-style { 
+        grid-column-start: 1;
+        grid-column-end: span 3;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 2;
+        }
+        @media only screen and (max-width: 550px){
+            grid-column-end: span 4;
+        }
+    }
+    .firstname-style {
+        grid-column-start: 1;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 10;
+        }
+    }
+    .lastname-style { 
+        grid-column-start: 6;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 6;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-start: 1;
+            grid-column-end: span 10;
+        }
+    }
+
+    .address-1-style {
+        grid-column-start: 1;
+        grid-column-end: span 10;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 5;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 7;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 10;
+        }
+    }
+    .address-2-style {
+        grid-column-start: 1;
+        grid-column-end: span 10;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 5;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 7;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 10;
+        }
+    }
+    .town-style {
+        grid-column-start: 1;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 4;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 6;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 10;
+        }
+    }
+    .county-style {
+        grid-column-start: 6;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 1200px){
+            grid-column-start: 1;
+            grid-column-end: span 4;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 6;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 10;
+        }
+   }
+    .postcode-style { 
+        grid-column-start: 1;
+        grid-column-end: span 3;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 2;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 3;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 4;
+        }
+    }
+    .country-style { 
+        grid-column-start: 1;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 4;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 6;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 10;
+        }
+    }
+    .phone-style {
+        grid-column-start: 1;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 3;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 4;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-end: span 8;
+        }
+    }
+    .mobile-style { 
+        grid-column-start: 6;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 1200px){
+            grid-column-end: span 3;
+        }
+        @media only screen and (max-width: 800px){
+            grid-column-end: span 4;
+        }
+        @media only screen and (max-width: 500px){
+            grid-column-start: 1;
+            grid-column-end: span 8;
+        }
+    }
+
+    .cdf__back {
+        grid-column-start: 1;
+        grid-column-end: span 3;
+    }
+    .cdf__create-account {
+        grid-column-start: 6;
+        grid-column-end: span 5;
+        @media only screen and (max-width: 480px){
+            grid-column-start: 5;
+            grid-column-end: span 6;
+        }
+    }
+
+    
+}

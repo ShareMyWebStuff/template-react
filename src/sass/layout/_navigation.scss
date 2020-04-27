@@ -122,10 +122,11 @@
             position: absolute;
             min-width: 12rem;
             right: 0;
-            background-color: rgba($color-blue-green-dark, .5);
+            background-color: rgba($color-blue-green-dark, .7);
             border-radius: 5px;
             border: 1px solid $color-logo-yellow;
             list-style-type: none;
+            z-index: 1000;
 
             // Add a little space at the top and bottom of the ul box
             li:first-child {

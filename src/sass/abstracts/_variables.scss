@@ -5,6 +5,9 @@ $color-logo-orange: #fb6542;
 $color-blue-green-light: #628282;
 $color-blue-green-dark: DarkSlateGray;
 $color-off-white-text: #C0C0C0;
+$color-success: #4F8A10;
+$color-error: #cc0000;
+$color-warning: #9F6000;
 
 
 // Social Media Colours
@@ -24,9 +27,13 @@ $image-directory: "/images";
 $activeShadow: 0 0 10px rgba($color-blue-green-light, .5);
 
 // FONT
-$small-font-size: 1.0rem;
-$default-font-size: 1.7rem;
-$heading-font-size: 3.5rem;
+// $small-font-size: 1.0rem;
+// $default-font-size: 1.7rem;
+// $heading-font-size: 3.5rem;
+$small-font-size: 0.8rem;
+$default-font-size: 1.4rem;
+$heading-font-size: 3.0rem;
 
 // GRID
-$screen-max-width: 114rem;
+// $screen-max-width: 114rem;
+$screen-max-width: 95rem;

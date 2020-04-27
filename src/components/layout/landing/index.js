@@ -1,7 +1,8 @@
 import React, {Component}  from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import history from 'components/history';
-import InfoCard from 'components/cards/infoCard'
+import InfoCard from '../../cards/infoCard'
 
 class Landing extends Component {
 
@@ -62,8 +63,12 @@ class Landing extends Component {
     }
 }
 
+Landing.propTypes = {
+    isAuthenticated: PropTypes.bool
+}
+
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.login.isAuthenticated
 })
 
 export default connect(mapStateToProps)(Landing);

@@ -1,12 +1,13 @@
 import React from 'react';
-import Navbar from '../navbar';
-import HeaderRegisterTutor from 'components/layout/headerRegisterTutor';
-import HeaderLanding from 'components/layout/headerLanding';
+import Navbar from '../Navbar';
+import HeaderUserRegistration from '../HeaderUserRegistration';
+import HeaderLanding from '../HeaderLanding';
+// import HeaderTutorSearch from '../HeaderTutorSearch';
 
 // 
 // Header
 // 
-// This component displays the header, including the NavBar and a subheading such a register tutor.
+// This component displays the header, including the NavBar and a subheading such as register tutor.
 // 
 class Header extends React.Component {
 
@@ -32,17 +33,47 @@ class Header extends React.Component {
             case "/":
                 tmpState.dataTest        = "HeaderLanding";
                 tmpState.headerComponent = HeaderLanding;
+                tmpState.props           = this.props.location.state;
                 tmpState.headerClass     = "header header-landing";
+                tmpState.showGradient    = true;
                 break;
-            case "/register-tutor":
-                tmpState.dataTest        = "HeaderRegisterTutor";
-                tmpState.headerComponent = HeaderRegisterTutor; 
+            case "/user-registration-student":
+            case "/user-registration-parent":
+            case "/user-registration-tutor":
+                tmpState.dataTest        = "HeaderUserRegistration";
+                tmpState.headerComponent = HeaderUserRegistration; 
+                tmpState.props           = this.props.location.state;
                 tmpState.headerClass     = "header header-landing";
+                tmpState.showGradient    = true;
+                break;
+            // case "/tutor-search":
+            //     tmpState.dataTest        = "HeaderTutorSearch";
+            //     tmpState.headerComponent = HeaderTutorSearch; 
+            //     tmpState.props           = this.props.location.state;
+            //     tmpState.headerClass     = "header header-tutor-search";
+            //     tmpState.showGradient    = true;
+            //     break;
+            case "/user-contact-details":
+            case "/verify-media":
+                tmpState.dataTest        = "Header";
+                tmpState.headerComponent = null; 
+                tmpState.props           = this.props.location.state;
+                tmpState.headerClass     = "header header-landing";
+                tmpState.showGradient    = false;
+                break;
+            case "/login":
+                tmpState.dataTest        = "Header";
+                tmpState.headerComponent = null; 
+                tmpState.props           = this.props.location.state;
+                tmpState.headerClass     = "header";
+                tmpState.showGradient    = false;
                 break;
             default:
                 tmpState.dataTest        = "Header";
                 tmpState.headerComponent = null; 
+                tmpState.props           = (this.props.location ? this.props.location.state : undefined );
                 tmpState.headerClass     = "header header-landing";
+                tmpState.showGradient    = false;
                 break;
         };
 
@@ -59,13 +90,16 @@ class Header extends React.Component {
 
     render () {
 
+        const headerComp = (this.state.headerComponent ? <this.state.headerComponent { ...this.state.props} />:null );
+        const displayGradient = (this.state.showGradient ? <div className="gradient gradient-bottom gradient-bottom-white"></div>:null );
+
         return (
             <header className={this.state.headerClass} data-test={this.state.dataTest}>
                 <div className="container">
                     <Navbar />
-                    {this.state.headerComponent ? <this.state.headerComponent />:null}
+                    {headerComp}
                 </div>
-                <div className="gradient gradient-bottom gradient-bottom-white"></div>
+                {displayGradient}
             </header>
         );
     };

@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import PrivateRoute from 'components/routing/PrivateRoute';
-import Home from 'components/home/Home';
-import Register from 'components/user/Register';
-import Login from 'components/user/Login';
-import Profile from 'components/user/Profile';
-import Languages from 'components/user/Languages';
-import Subjects from 'components/user/Subjects';
-
+import Home from 'components/layout/Home';
+import UserRegistration from 'components/user/UserRegistration';
+import UserContactDetails from 'components/user/UserContactDetails';
+import Login from 'components/user/UserLogin';
+import ResetLoginDetails from 'components/user/UserResetLoginDetails';
+import UserVerifyMedia from 'components/user/UserVerifyMedia';
+import PathNotFound from 'components/general/PathNotFound';
 
 const routes = () => {
 
@@ -16,15 +16,17 @@ const routes = () => {
             <Switch>
                 <Route path="/login" component={Login} />
                 <PrivateRoute path="/home" component={Home} />
-                <Route path="/tutor_register" component={Register} />
-                <Route path="/tutor_profile" component={Profile} />
-                <Route path="/student_register" component={Register} />
-                <Route path="/student_profile" component={Profile} />
-                <Route path="/parent_register" component={Register} />
-                <Route path="/parent_profile" component={Profile} />
-                <Route path="/languages" component={Languages} />
-                <Route path="/subjects" component={Subjects} />
-                <Route path="/verification_screen" component={Register} />
+
+                <Route path="/user-registration"         component={UserRegistration} />
+                <Route path="/user-registration-parent"  component={UserRegistration} />
+                <Route path="/user-registration-tutor"   component={UserRegistration} />
+                <Route path="/user-registration-student" component={UserRegistration} />
+                <Route path="/user-contact-details"      component={UserContactDetails} />
+                <Route path="/reset-login-details"       component={ResetLoginDetails} />
+
+                <Route path="/verify-media/:verificationCode" component={UserVerifyMedia} />
+                <Route path="/verify-media" component={UserVerifyMedia} />
+                <Route path="/" component={PathNotFound} />
             </Switch>
         </Fragment>
 

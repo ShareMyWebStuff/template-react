@@ -4,23 +4,32 @@ import { findByDataTestAttr } from '../../../../Utils';
 import { storeFn } from '../../../Root';
 import Navbar from '.';
 
+// 
 // setUp function to create component
+//
+// This function can be called with a state so we can test with a start up state, hence the state can be set as if we are logged in
+// 
 const setUp = (initialState = {}, props) => {
     const store=storeFn(initialState);
     const wrapper = shallow(<Navbar store={store} {...props} />).childAt(0).dive();
     return wrapper;
 };
 
-
+// 
+// Test the NavBar component
+// 
 describe ('Navbar Component', () => {
 
-    describe ( 'NavBar test not authorised', () => {
+    //
+    // Check the navbar works correctly then a user is not logged in
+    //
+    describe ( 'NavBar test not logged in', () => {
 
         let wrapper;
 
         beforeEach ( () => {
             const state = {
-                auth: {
+                login: {
                     isAuthenticated: false
                 }
             }
@@ -56,17 +65,21 @@ describe ('Navbar Component', () => {
 
         test( 'Test nav guest has menu items', () => {
             const component = findByDataTestAttr(wrapper, 'nav-main-guest');
-            expect(component.find('li').length).toBeGreaterThan(0);
+            expect(component.find('li').length).toBe(3);
         });
+
     });
 
-    describe ( 'NavBar test not authorised', () => {
+    //
+    // Check the navbar works correctly then a user is not logged in
+    //
+    describe ( 'NavBar test user logged in', () => {
 
         let wrapper;
 
         beforeEach ( () => {
             const state = {
-                auth: {
+                login: {
                     isAuthenticated: true
                 }
             }
@@ -105,9 +118,6 @@ describe ('Navbar Component', () => {
             expect(component.find('li').length).toBeGreaterThan(0);
         });
     });
-
-
-
 
 });
 

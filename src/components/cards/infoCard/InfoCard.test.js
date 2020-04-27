@@ -121,14 +121,9 @@ describe ( 'Test InfoCard', () => {
             component = findByDataTestAttr(wrapper, 'infocard__desc-paragraph' );
             expect(component.length).toBe(1);
         });
-
     });
 
-
 });
-
-// describe( 'HeaderRegisterTutor', () => {
-//     describe( 'Check PropTypes', () => {
 
 
 

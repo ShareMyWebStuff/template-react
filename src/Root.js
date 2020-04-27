@@ -4,7 +4,8 @@ import { createStore, applyMiddleware  } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
-import { loadUser } from './actions/auth';
+import { loadUser } from './actions/login';
+import { getSubjects  } from './actions/subjects';
 
 export const middleware = [thunk];
 
@@ -20,14 +21,11 @@ export const storeFn = (initialState = {} ) => {
 export const Root = ({children, initialState = {} }) => {
 
     const store = storeFn(initialState);
-    // let lu;
-    console.log ();
+
     useEffect ( () => {
-        // lu = loadUser();
-        // store.dispatch(lu);
         store.dispatch (loadUser());
+        store.dispatch (getSubjects());
     }, [store]);
-    // }, [lu]);
 
     return (
         <Provider store={store}> 

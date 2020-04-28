@@ -1,0 +1,10 @@
+.legal{
+    &__dropdown{
+        border: none;
+        // border-bottom: 1px solid $color_black;
+        font-size: 2rem;
+    }
+    &__dropdown:focus{
+        outline: none;
+    }
+}

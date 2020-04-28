@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByDataTestAttr} from '../../../Utils';
-import PathNotFound from './PathNotFound';
+import { findByDataTestAttr} from '../../../../Utils';
+import PathNotFound from '.';
 
 // setUp function to create component
 const setUp = (props={}) => {

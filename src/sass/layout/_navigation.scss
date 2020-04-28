@@ -171,14 +171,6 @@
             }
         }
 
-        .menu-item:hover {
-            color: $color-logo-orange;
-        }
-
-        .menu-item-active {
-            color: $color-logo-orange;
-        }
-
         .nav__dropdown:hover span,
         .nav__dropdown-active span{
             color: $color-logo-orange;         
@@ -194,5 +186,13 @@
         display: block;
     }
 
+}
+
+.menu-item:hover {
+    color: $color-logo-orange;
+}
+
+.menu-item-active {
+    color: $color-logo-orange;
 }
 

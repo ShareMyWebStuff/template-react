@@ -1,6 +1,8 @@
 import React, {Component}  from 'react';
 import axios from 'axios';
 import { InputField } from '../../form/InputFields';
+import history from 'components/history';
+
 
 // 
 // ResetLoginDetails
@@ -22,57 +24,89 @@ class ResetLoginDetails extends Component {
     }
 
     onChangeHandler = (e) => {
+
+        this.setState ({errorMsg: {}});
         this.setState( { [e.target.name]: e.target.value })
     }
 
-    async emailUserDetails (path) {
-
-        let res;
+    async emailUsernames () {
 
         try {
-            
+
+            let axiosInstance = axios.create( {
+                validateStatus: function (status) {
+                    return status >= 200 && status <= 503;
+                },
+            });
+
+            this.setState ({errorMsg: {email: 'Sending email...'}});
+            const response = await axiosInstance.get(`${process.env.REACT_APP_API_URL}user-email-usernames?email=${this.state.email}&domainName=${process.env.REACT_APP_DOMAIN_NAME}&websiteName=${process.env.REACT_APP_WEBSITE_NAME}`);
+
+            if (response.status === 200 ){
+                this.setState ({errorMsg: {email: response.data.email } });
+                history.push(  { pathname: '/login', search: '', state:{ alertMessage: response.data.email } } );
+            } else {
+                this.setState ({errorMsg: response.data.errorMsg});
+            }
+
+        } catch (err) {
+            this.setState ({errorMsg: err });
+            throw (err);
+        }
+
+    }
+
+    async emailPasswordReset () {
+
+        try {
             const config = {
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'X-Auth-Token': this.state.token
+                    'Content-Type': 'application/json'
                 },
                 validateStatus: function (status) {
-                    return ( ( status >= 200 && status < 300 ) || status === 404 || status === 422 || status === 500 || status === 503 )
+                    return ( ( status >= 200 && status < 300 ) || status === 401 || status === 422 || status === 500 || status === 503 )
                 },
                 crossDomain: true
             }
 
-            const body = JSON.stringify({ username: this.state.username, password: this.state.password });
-            res = await axios.post(path, body, config);
+            const body = JSON.stringify({
+                username: this.state.username, 
+                domainName: process.env.REACT_APP_DOMAIN_NAME,
+                websiteName: process.env.REACT_APP_WEBSITE_NAME
+            });
+
+            this.setState ({errorMsg: {username: 'Sending email...'}});
+            const response = await axios.put(`${process.env.REACT_APP_API_URL}user-password-reset`, body, config);
+
+            if (response.status === 200 ){
+                this.setState ({errorMsg: {username: response.data.username } });
+            } else {
+                this.setState ({errorMsg: response.data.errorMsg});
+            }
 
         } catch (err) {
-
+            this.setState ({errorMsg: err });
             throw (err);
         }
-        return (res);
+
     }
 
     onSubmit = async (e) => {
         try {
             e.preventDefault();
 
-            const res = await this.verifyLogin ();
-
-            
-            // if ( res.status === 200 || res.status === 201 ) {
-            //     const token = JSON.parse (res.data.message).token;
-            //     await this.props.login ( {token});
-            //     history.push ('/home');
-            // } else {
-            //     this.setState ({errorMsg: res.data.errorMsg});
-            // }
+            if ( this.state.showForm === 'Email' ) {
+                await this.emailUsernames ();
+            } else if ( this.state.showForm === 'Password' ) {
+                await this.emailPasswordReset ();
+            }
 
         } catch (err) {
-            console.log ('Login');
             console.log (err);
+            throw(err);
         }
-    }
+    };
 
     emailUsername = () => {
         const emailError     = (this.state.errorMsg["email"] ? <span className="form__input--error">{this.state.errorMsg["email"]}</span> :null);

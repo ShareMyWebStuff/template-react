@@ -4,7 +4,7 @@ import history from 'components/history';
 import { InputField } from '../../form/InputFields';
 
 // 
-// VerfyMedia
+// VerifyMedia
 // 
 // When a user registers a verification code is emailed to them. This verification code can be manually 
 // entered into this component or passed as a prop. This component then sends the verification code to the 
@@ -47,7 +47,9 @@ class VerifyMedia extends Component {
             }
 
             const body = JSON.stringify({ verificationCode: this.state.verificationCode });
-            res = await axios.post(`/user-media-verify`, body, config);
+            res = await axios.post(`${process.env.REACT_APP_API_URL}user-media-verify`, body, config);
+            console.log ('Verify Email');
+            console.log (res);
 
         } catch (err) {
 
@@ -61,10 +63,12 @@ class VerifyMedia extends Component {
             e.preventDefault();
 
             const res = await this.verifyAccount ();
+            console.log ('onSubmit');
+            console.log (res);
 
             if ( res.status === 200 || res.status === 201 ) {
                 console.log ('Data error');
-                history.push(  { pathname: '/login', search: '', state:{ waitingValidation: false } } );
+                history.push(  { pathname: '/login', search: '', state:{ alertMessage: 'Account has been verified' } } );
             } else {
                 this.setState ({errorMsgs: res.data.errorMsg});
             }
@@ -103,14 +107,14 @@ class VerifyMedia extends Component {
 
     verificationMedia = (side) => {
         const cardSide = "email-card email-card-center-" + (side || 'left');
-        const verifyError     = (this.state.errorMsgs["verificationCode"] ? <p className="fg-yellow my-3">{this.state.errorMsgs["verificationCode"]}</p> :<Fragment><p className="my-3">We are currently verifying your account.</p><p>Once your account is verfied we will redirect you to the login page.</p></Fragment>);
+        const verifyError     = (this.state.errorMsgs["verificationCode"] ? <p className="fg-yellow my-3">{this.state.errorMsgs["verificationCode"]}</p> :<Fragment><p className="my-3">We are currently verifying your account.</p><p>Once your account is verified we will redirect you to the login page.</p></Fragment>);
 
         return (
             <div className={cardSide} data-test="user-verify-media" >
-                <div className="email-card__picture-area" data-test="user-verify-media__picture" >
+                <div className="email-card__picture-area email-card__pa-25" data-test="user-verify-media__picture" >
                     <div className="send_email_img"></div>
                 </div>
-                <div className="email-card__desc" data-test="user-verify-media__desc">
+                <div className="email-card__desc email-card__desc-75" data-test="user-verify-media__desc">
                     <h2 className="heading fg-white">Verify Media</h2>
                     {verifyError}
                 </div>
@@ -125,10 +129,10 @@ class VerifyMedia extends Component {
 
         return (
             <div className={cardSide} data-test="user-verify-form" >
-                <div className="email-card__picture-area" data-test="user-verify-form__picture" >
+                <div className="email-card__picture-area email-card__pa-25" data-test="user-verify-form__picture" >
                     <div className="send_email_img"></div>
                 </div>
-                <div className="email-card__desc" data-test="user-verify-form__desc">
+                <div className="email-card__desc email-card__desc-75" data-test="user-verify-form__desc">
                     <h2 className="heading fg-white">Verify Media</h2>
 
                     <p>You will have received an email or SMS, enter the code you received below in order to valid your email address or the mobile phone.</p>

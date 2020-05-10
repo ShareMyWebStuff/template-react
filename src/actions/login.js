@@ -93,12 +93,15 @@ export const userLogin = (username, password) => async dispatch => {
         },
         crossDomain: true
     };
+    console.log ('HERE I AM');
 
     try {
         dispatch ({ type: LOGIN_START});
 
         const body = JSON.stringify({ username, password });
         res = await axios.post(`${process.env.REACT_APP_API_URL}user-auth`, body, config);
+        console.log ('userLogin');
+        console.log (res);
 
         const actionType = (res.status >= 200 && res.status < 300 ? LOGIN_SUCCESS : LOGIN_FAIL);
 
@@ -110,6 +113,8 @@ export const userLogin = (username, password) => async dispatch => {
         await dispatch ( loadUser());
     
     } catch (err) {
+        console.log ('userLogin');
+        console.log(err);
 
         const errorMsg = {password: 'Error authenticating. Try again'};
 

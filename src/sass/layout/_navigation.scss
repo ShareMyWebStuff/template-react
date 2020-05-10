@@ -1,4 +1,4 @@
-
+// Sample nav bar
 // <nav id="nav">
 
 //     <div id="nav-toggler">
@@ -188,6 +188,10 @@
 
 }
 
+.menu-item {
+    cursor: pointer;
+}
+
 .menu-item:hover {
     color: $color-logo-orange;
 }
@@ -196,3 +200,6 @@
     color: $color-logo-orange;
 }
 
+.nav-brand__logo:hover {
+    cursor: pointer;
+}

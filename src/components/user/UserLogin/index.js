@@ -11,9 +11,11 @@ class Login extends Component {
 
         this.state = {
             waitingValidation: ( props.location && props.location.state && props.location.state.waitingValidation ? true : false ),
+            alertMessage: ( props.location && props.location.state && props.location.state.alertMessage ? props.location.state.alertMessage : '' ),
             username: 'dadfromwoking',
             password: 'Sybase01',
-            email: ''
+            email: '', 
+            errorMsgs: {}
         };
         resetLoginErrors();
     }
@@ -28,7 +30,6 @@ class Login extends Component {
         if ( prevProps.isAuthenticated !== this.props.isAuthenticated && this.props.isAuthenticated ) {
             history.push ('/home');
         }
-
     } 
 
     onSubmit = async (e) => {
@@ -45,16 +46,25 @@ class Login extends Component {
         }
     }
 
+    displayAlertMsg = () => {
+        return (
+            <div className="alert-box" data-test='' >
+                <span onClick={ () => this.setState({alertMessage: ''})} className="alert-box__close">&times;</span>
+                <p>{this.state.alertMessage}</p>
+            </div>
+        );
+    }
+
     emailSentMsg = (side) => {
         const cardSide = "email-card email-card-center-" + (side || 'left');
         const emailError     = (this.state.errorMsg && this.state.errorMsg["email"] ? <span className="form__input--error">{this.state.errorMsg["email"]}</span> :null);
 
         return (
             <div className={cardSide} data-test='login_email_sent' >
-                <div className="email-card__picture-area" data-test="login_email_sent_picture" >
+                <div className="email-card__picture-area email-card__pa-25" data-test="login_email_sent_picture" >
                     <div className="send_email_img"></div>
                 </div>
-                <div className="email-card__desc" data-test="login_email_sent_desc">
+                <div className="email-card__desc email-card__desc-75" data-test="login_email_sent_desc">
                     <h2 className="heading fg-white">Email Sent</h2>
                     <span onClick={ () => this.setState({waitingValidation: false})} className="email-card_close">&times;</span>
 
@@ -119,8 +129,11 @@ class Login extends Component {
 
                     <div className="text-center fg-yellow" data-test='login_reset_links'>
                         <p className="1">Do you have an account?</p>
-                        <p className="hover-orange small-text" onClick={ () => history.push(  { pathname: '/reset-login-details', search: '', state:{ showForm: 'Email'} } ) } >Forgotten Username?</p>
-                        <p className="hover-orange small-text" onClick={ () => history.push(  { pathname: '/reset-login-details', search: '', state:{ showForm: 'Password'} } ) } >Forgotten Password?</p>
+                        {/* <p className="hover-orange small-text" onClick={ () => history.push(  { pathname: '/reset-login-details', search: '', state:{ showForm: 'Email'} } ) } >Forgotten Username?</p>
+                        <p className="hover-orange small-text" onClick={ () => history.push(  { pathname: '/reset-login-details', search: '', state:{ showForm: 'Password'} } ) } >Forgotten Password?</p> */}
+                        <p className="small-text menu-item" onClick={ () => history.push(  { pathname: '/reset-login-details', search: '', state:{ showForm: 'Email'} } ) } >Forgotten Username?</p>
+                        <p className="small-text menu-item" onClick={ () => history.push(  { pathname: '/reset-login-details', search: '', state:{ showForm: 'Password'} } ) } >Forgotten Password?</p>
+                        
                     </div>
 
                 </div>
@@ -136,6 +149,7 @@ class Login extends Component {
 
     render () {
 
+        const alertMessage = (this.state.alertMessage.length > 0 ? this.displayAlertMsg (): null);
         const emailSent = (this.state.waitingValidation? this.emailSentMsg (): null);
         const login = this.loginForm();
 
@@ -146,6 +160,8 @@ class Login extends Component {
                     { emailSent }
 
                     { login }
+
+                    { alertMessage }
 
                 </section>
             </main>

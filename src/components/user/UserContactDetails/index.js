@@ -188,6 +188,8 @@ class UserContactDetails extends Component {
                 });
 
                 const res = await axios.post(`${process.env.REACT_APP_API_URL}user-contact-details`, body, config);
+                console.log ('Contact Details - res');
+                console.log (res);
                 const data = res.data;
 
                 if ( res.status !== 200 && res.status !== 201 ) {

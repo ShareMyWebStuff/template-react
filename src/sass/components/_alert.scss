@@ -1,0 +1,29 @@
+.alert-box {
+    margin: 2rem;
+    margin-top:    2rem;
+    margin-bottom: 5rem;
+    border-radius: 5rem;
+    border-radius: 2rem;
+    border: 1px solid $color-black;
+    overflow: hidden;
+    padding: 1rem 3rem;
+    background-color: $color-blue-green-dark;
+    color: $color-white;
+    background-color: $color-logo-yellow;
+    color: $color-black;
+    
+    font-size: $default-font-size;
+    position: relative;
+    
+    &__close {
+        cursor: pointer;
+        font-size: 2.5rem;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        right: 2rem;
+        z-index: 100;
+    }
+
+}
+

@@ -35,6 +35,7 @@ function Footer(props) {
     }
 
     const homePath = ( props.isAuthenticated ? '/home' : '/' );
+    const currentYear = new Date().getFullYear();
 
     return (
 
@@ -55,7 +56,7 @@ function Footer(props) {
                     </div>
 
                     <p className="footer-box__mission-statement" data-test='footer-box__ms'>Empowering students to achieve more.</p>
-                    <p className="footer-box__copyright" data-test='footer-box__copyright'> <span className="line-break">Copyright &copy; 2015 - 2019</span> Cameron and Guy Limited </p>
+                    <p className="footer-box__copyright" data-test='footer-box__copyright'> <span className="line-break">Copyright &copy; 2015 - {currentYear}</span> Cameron and Guy Limited </p>
                     <div className="footer-box__footer_nav" data-test='footer-box__navigation'>
                         <span className="nav-link-styling menu-item" onClick={() => history.push(homePath)}>Home</span>
                         <span className="footer-box__nav-bar">|</span> 

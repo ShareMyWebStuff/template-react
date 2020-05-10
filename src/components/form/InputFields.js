@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 //  placeholder         The fields placeholder text
 //  onChangeHandler     This is the onchange function
 //  required            Set to true if the element is mandatory
+//  disabled            Set to true if the element is disabled
 //  minLength           If the field only accepts numeric this is the minimum value.
 //  validationError     This is where the element field validation error is placed
 //  systemError         This is where a second error with the field input can be placed
@@ -38,6 +39,7 @@ export const InputField = (props) => {
     };
 
     if ( props.required ) { attrs['required'] = ""  }
+    if ( props.disabled ) { attrs['disabled'] = true  }
     if ( !isNaN(props.minLength) ) { attrs['minLength'] = props.minLength  }
 
     return (

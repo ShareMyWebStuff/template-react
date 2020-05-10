@@ -6,6 +6,7 @@ import UserRegistration from 'components/user/UserRegistration';
 import UserContactDetails from 'components/user/UserContactDetails';
 import Login from 'components/user/UserLogin';
 import ResetLoginDetails from 'components/user/UserResetLoginDetails';
+import UserResetPassword from 'components/user/UserResetPassword';
 import UserVerifyMedia from 'components/user/UserVerifyMedia';
 import LegalInformation from 'components/general/LegalInformation';
 import PathNotFound from 'components/general/PathNotFound';
@@ -24,6 +25,7 @@ const routes = () => {
                 <Route path="/user-registration-student" component={UserRegistration} />
                 <Route path="/user-contact-details"      component={UserContactDetails} />
                 <Route path="/reset-login-details"       component={ResetLoginDetails} />
+                <Route path="/reset-password/:resetCode" component={UserResetPassword} />
                 
 
                 <Route path="/terms"                     component={LegalInformation} />
